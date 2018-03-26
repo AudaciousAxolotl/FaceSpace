@@ -21,7 +21,9 @@ $user = $repo->getUserByID($_GET["id"]);
   <button type="button">Edit Profile</button><br><br>
 
   New Post<br>
-  <form action="../../Services/postService.php?id=3" method="post" id="makePostForm" name="makePostForm">
+  <?php
+  echo '<form action="../../Services/postService.php?id=' . $user->userId . '"  method="post" id="makePostForm" name="makePostForm">';
+  ?>
     <textarea rows="4" cols="50" name="msg">Enter text here</textarea><br>
     <input type="submit" value="Post">
   </form>
