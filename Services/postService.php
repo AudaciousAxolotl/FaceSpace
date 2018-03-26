@@ -7,9 +7,17 @@ echo $_POST["msg"];
 $repo = new PostRepository();
 
 $post = new Post();
-//$post->userId = $_GET["userId"];
-//$post->msg = $_POST["msg"];
-//$post->datePosted = "0000-00-00";
+$post->userId = $_GET["id"];
+$post->msg = $_POST["msg"];
+$post->datePosted = "0000-00-00";
 
-//$repo->addPost($post);
+$res = $repo->addPost($post);
+if ($res)
+{
+    echo '{"added":true}';
+}
+else
+{
+    echo '{"added":false}';
+}
 ?>
