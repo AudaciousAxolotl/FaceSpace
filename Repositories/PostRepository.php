@@ -11,7 +11,7 @@ class PostRepository extends Repository
             `datePosted`) VALUES (
             '$newPost->userId',
             '$newPost->msg',
-            CURDATE())";
+            NOW())";
         return $this->conn->query($sql) === TRUE;
     }
 }

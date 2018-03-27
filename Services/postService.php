@@ -2,8 +2,6 @@
 require_once(realpath($_SERVER["DOCUMENT_ROOT"]).'/FaceSpace/Repositories/PostRepository.php');
 require_once(realpath($_SERVER["DOCUMENT_ROOT"]).'/FaceSpace/Models/Post.php');
 
-echo $_POST["msg"];
-
 $repo = new PostRepository();
 
 $post = new Post();

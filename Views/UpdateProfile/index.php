@@ -15,9 +15,13 @@ $user = $repo->getUserByID($_GET["id"]);
   <?php
   echo '<form action="../../Services/updateProfileService.php?id=' . $user->userId . '" method="post" id="updateProfileForm" name="updateProfileForm">';
   ?>
+    Bio:<br>
     <textarea rows="4" cols="50" name="bio"><?php echo $user->bio; ?></textarea><br>
+    Interests:<br>
     <textarea rows="4" cols="50" name="interests"><?php echo $user->interests; ?></textarea><br>
+    Job:<br>
     <input type="text" name="job"><br>
+    Employer:<br>
     <input type="text" name="employer"><br>
     <input type="submit" value="Save Changes">
   </form>
