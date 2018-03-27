@@ -18,11 +18,15 @@ $user = $repo->getUserByID($_GET["id"]);
   Interests: <?php echo $user->interests; ?><br>
   Job: <?php echo $user->job; ?><br>
   Employer: <?php echo $user->employer; ?><br>
-  <button type="button">Edit Profile</button><br><br>
+  <?php
+  echo '<form action="../../Views/UpdateProfile/index.php?id=' . $user->userId . '">';
+  ?>
+    <input type="submit" value="Edit Profile">
+  </form><br>
 
   New Post<br>
   <?php
-  echo '<form action="../../Services/postService.php?id=' . $user->userId . '"  method="post" id="makePostForm" name="makePostForm">';
+  echo '<form action="../../Services/postService.php?id=' . $user->userId . '" method="post" id="makePostForm" name="makePostForm">';
   ?>
     <textarea rows="4" cols="50" name="msg">Enter text here</textarea><br>
     <input type="submit" value="Post">

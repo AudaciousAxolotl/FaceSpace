@@ -10,6 +10,8 @@ $user->password = $_POST["password"];
 $user->firstName = $_POST["firstName"];
 $user->lastName = $_POST["lastName"];
 $user->dateOfBirth = $_POST["dateOfBirth"];
+$user->isSuspended = FALSE;
+$user->isPublic = TRUE;
 
 if (!$repo->doesUserExist($user->username))
 {

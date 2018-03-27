@@ -9,7 +9,6 @@ $repo = new PostRepository();
 $post = new Post();
 $post->userId = $_GET["id"];
 $post->msg = $_POST["msg"];
-$post->datePosted = "0000-00-00";
 
 $res = $repo->addPost($post);
 if ($res)

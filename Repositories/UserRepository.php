@@ -36,11 +36,18 @@ class UserRepository extends Repository
 
     function updateUserProfile($id, $bio, $interests, $job, $employer)
     {
+        // $sql = "UPDATE `users` SET
+        //     `bio` = '" . $bio . "',
+        //     `interests` = '" . $interests . "',
+        //     `job` = '" . $job . "',
+        //     `employer` = '" . $employer . "' WHERE `userId` = '" . $id . "'";
         $sql = "UPDATE `users` SET
-            `bio` = '" . $bio . "',
-            `interests` = '" . $interests . "',
-            `job` = '" . $job . "',
-            `employer` = '" . $employer . "' WHERE userId = '" . $id . "'";
+            `bio` = 'SAMPLE BIO',
+            `interests` = 'SAMPLE INTERESTS',
+            `job` = 'SAMPLE JOB',
+            `employer` = 'SAMPLE EMPLOYER'
+            WHERE `userId` = '" . $id . "'";
+        echo $sql;
         return $this->conn->query($sql) === TRUE;
     }
 
@@ -85,6 +92,10 @@ class UserRepository extends Repository
         $user->firstName = $row["firstName"];
         $user->lastName = $row["lastName"];
         $user->dateOfBirth = $row["dateOfBirth"];
+        $user->bio = $row["bio"];
+        $user->interests = $row["interests"];
+        $user->job = $row["job"];
+        $user->employer = $row["employer"];
         return $user;
     }
 }
