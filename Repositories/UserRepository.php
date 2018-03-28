@@ -40,12 +40,13 @@ class UserRepository extends Repository
         //     `bio` = '" . $bio . "',
         //     `interests` = '" . $interests . "',
         //     `job` = '" . $job . "',
-        //     `employer` = '" . $employer . "' WHERE `userId` = '" . $id . "'";
+        //     `employer` = '" . $employer . "'
+        //     WHERE `userId` = '" . $id . "'";
         $sql = "UPDATE `users` SET
-            `bio` = 'SAMPLE BIO',
-            `interests` = 'SAMPLE INTERESTS',
-            `job` = 'SAMPLE JOB',
-            `employer` = 'SAMPLE EMPLOYER'
+            `bio` = '" . $bio . "',
+            `interests` = '" . $interests . "',
+            `job` = '" . $job . "',
+            `employer` = '" . $employer . "'
             WHERE `userId` = '" . $id . "'";
         echo $sql;
         return $this->conn->query($sql) === TRUE;

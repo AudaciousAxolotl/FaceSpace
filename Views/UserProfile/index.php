@@ -19,14 +19,16 @@ $user = $repo->getUserByID($_GET["id"]);
   Job: <?php echo $user->job; ?><br>
   Employer: <?php echo $user->employer; ?><br>
   <?php
-  echo '<form action="../../Views/UpdateProfile/index.php?id=' . $user->userId . '">';
+  echo '<form action="../../Views/UpdateProfile/index.php">';
+  echo '<input type="hidden" value="' . $user->userId . '" name="id">';
   ?>
     <input type="submit" value="Edit Profile">
   </form><br>
 
   New Post<br>
   <?php
-  echo '<form action="../../Services/postService.php?id=' . $user->userId . '" method="post" id="makePostForm" name="makePostForm">';
+  echo '<form action="../../Services/postService.php" method="post" id="makePostForm" name="makePostForm">';
+  echo '<input type="hidden" value="' . $user->userId . '" name="id">';
   ?>
     <textarea rows="4" cols="50" name="msg">Enter text here</textarea><br>
     <input type="submit" value="Post">

@@ -20,9 +20,9 @@ $user = $repo->getUserByID($_GET["id"]);
     Interests:<br>
     <textarea rows="4" cols="50" name="interests"><?php echo $user->interests; ?></textarea><br>
     Job:<br>
-    <input type="text" name="job"><br>
+    <input type="text" name="job" value=<?php echo $user->job; ?>><br>
     Employer:<br>
-    <input type="text" name="employer"><br>
+    <input type="text" name="employer" value=<?php echo $user->employer; ?>><br>
     <input type="submit" value="Save Changes">
   </form>
 </body>

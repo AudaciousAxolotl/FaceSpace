@@ -5,7 +5,7 @@ require_once(realpath($_SERVER["DOCUMENT_ROOT"]).'/FaceSpace/Models/Post.php');
 $repo = new PostRepository();
 
 $post = new Post();
-$post->userId = $_GET["id"];
+$post->userId = $_POST["id"];
 $post->msg = $_POST["msg"];
 
 $res = $repo->addPost($post);
