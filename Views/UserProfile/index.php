@@ -23,6 +23,12 @@ $user = $repo->getUserByID($_GET["id"]);
   echo '<input type="hidden" value="' . $user->userId . '" name="id">';
   ?>
     <input type="submit" value="Edit Profile">
+  </form>
+  <?php
+  echo '<form action="../../Services/friendService.php">';
+  echo '<input type="hidden" value="' . $user->userId . '" name="id">';
+  ?>
+    <input type="submit" value="Add Friend">
   </form><br>
 
   New Post<br>
