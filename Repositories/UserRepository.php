@@ -69,11 +69,8 @@ class UserRepository extends Repository
             {
                 $user = new User();
                 $user->userId = $row["userId"];
-                $user->username = $row["username"];
-                $user->password = $row["password"];
                 $user->firstName = $row["firstName"];
                 $user->lastName = $row["lastName"];
-                $user->dateOfBirth = $row["dateOfBirth"];
                 array_push($resultsArray, $user);
             }
         }
@@ -97,6 +94,21 @@ class UserRepository extends Repository
         $user->job = $row["job"];
         $user->employer = $row["employer"];
         return $user;
+    }
+
+    function getFriends($id)
+    {
+        $sql = "SELECT `friendsUserId` FROM `friends` WHERE `userId` = '" . $id . "'";
+        $res = $this->conn->query($sql);
+        $resultsArray = [];
+        if ($res->num_rows > 0)
+        {
+            while ($row = $res->fetch_assoc())
+            {
+                array_push($resultsArray, $row["friendsUserId"]);
+            }
+        }
+        return $resultsArray;
     }
 }
 ?>
