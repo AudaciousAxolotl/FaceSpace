@@ -34,21 +34,20 @@ class UserRepository extends Repository
         return $this->conn->query($sql) === TRUE;
     }
 
+    function addFriend($userId, $friendId)
+    {
+        $sql = "INSERT INTO `friends` VALUES ('$userId', '$friendId')";
+        return $this->conn->query($sql) === TRUE;
+    }
+
     function updateUserProfile($id, $bio, $interests, $job, $employer)
     {
-        // $sql = "UPDATE `users` SET
-        //     `bio` = '" . $bio . "',
-        //     `interests` = '" . $interests . "',
-        //     `job` = '" . $job . "',
-        //     `employer` = '" . $employer . "'
-        //     WHERE `userId` = '" . $id . "'";
         $sql = "UPDATE `users` SET
             `bio` = '" . $bio . "',
             `interests` = '" . $interests . "',
             `job` = '" . $job . "',
             `employer` = '" . $employer . "'
             WHERE `userId` = '" . $id . "'";
-        echo $sql;
         return $this->conn->query($sql) === TRUE;
     }
 
