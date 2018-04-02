@@ -1,5 +1,6 @@
 <?php
 require_once(realpath($_SERVER["DOCUMENT_ROOT"]).'/FaceSpace/Repositories/UserRepository.php');
+require_once(realpath($_SERVER["DOCUMENT_ROOT"]).'/FaceSpace/Repositories/PostRepository.php');
 
 $repo = new UserRepository();
 $user = $repo->getUserByID($_GET["id"]);
@@ -38,7 +39,19 @@ $user = $repo->getUserByID($_GET["id"]);
   ?>
     <textarea rows="4" cols="50" name="msg">Enter text here</textarea><br>
     <input type="submit" value="Post">
-  </form>
+  </form><br>
+
+  News Feed<br>
+  <?php
+  $postRepo = new PostRepository();
+  $res = $postRepo->getNewsFeedByUserID($user->userId);
+  $n = count($res);
+  for ($i = 0; $i < $n; $i++)
+  {
+    echo $res[$i]->msg;
+    echo "<br>";
+  }
+  ?>
 </body>
 
 </html>
