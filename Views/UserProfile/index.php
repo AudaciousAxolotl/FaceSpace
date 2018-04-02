@@ -41,15 +41,18 @@ $user = $repo->getUserByID($_GET["id"]);
     <input type="submit" value="Post">
   </form><br>
 
-  News Feed<br>
+  <h3>News Feed</h3>
   <?php
   $postRepo = new PostRepository();
   $res = $postRepo->getNewsFeedByUserID($user->userId);
   $n = count($res);
   for ($i = 0; $i < $n; $i++)
   {
-    echo $res[$i]->msg;
-    echo "<br>";
+    $id = $res[$i]->userId;
+    $user = $repo->getUserByID($id);
+    echo "Posted by " . $user->firstName . " " . $user->lastName . " on " . $res[$i]->datePosted . "<br>";
+    echo '"' . $res[$i]->msg . '"';
+    echo "<br><br>";
   }
   ?>
 </body>

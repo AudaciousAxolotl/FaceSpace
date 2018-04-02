@@ -21,13 +21,24 @@ class PostRepository extends Repository
     {
         $repo = new UserRepository();
         $arr = $repo->getFriends($id);
-        $sql = "SELECT *
-            FROM `posts`
-            WHERE `userId` = $id
-            OR `userId`
-            IN (" . implode(', ', $arr) . ")
-            ORDER BY `datePosted` DESC
-            LIMIT 10";
+        if (count($arr) == 0)
+        {
+            $sql = "SELECT *
+                FROM `posts`
+                WHERE `userId` = $id
+                ORDER BY `datePosted` DESC
+                LIMIT 10";
+        }
+        else
+        {
+            $sql = "SELECT *
+                FROM `posts`
+                WHERE `userId` = $id
+                OR `userId`
+                IN (" . implode(', ', $arr) . ")
+                ORDER BY `datePosted` DESC
+                LIMIT 10";
+        }
         $res = $this->conn->query($sql);
         $resultsArray = [];
         if ($res->num_rows > 0)
