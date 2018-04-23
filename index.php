@@ -27,31 +27,31 @@ session_start();
     <div class = "form-group">
       <label class="control-label col-sm-2" for="username">Username:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="username" placeholder="Username"><br>
+        <input type="text" class="form-control" name="username" placeholder="Username">
       </div>
     </div>
     <div class = "form-group">
       <label class="control-label col-sm-2" for="Password">Password:</label>
       <div class="col-sm-10">
-        <input type="password" class="form-control" name="password" placeholder="Password"><br>
+        <input type="password" class="form-control" name="password" placeholder="Password">
       </div>
     </div>
     <div class = "form-group">
       <label class="control-label col-sm-2" for="firstname">First Name:</label>
       <div class="col-sm-10">
-      <input type="text" class="form-control" name="firstName" placeholder="First name"><br>
+      <input type="text" class="form-control" name="firstName" placeholder="First name">
       </div>
     </div>
     <div class = "form-group">
       <label class="control-label col-sm-2" for="lastname">Last Name:</label>
       <div class="col-sm-10">
-      <input type="text" class="form-control" name="lastName" placeholder="Last name"><br>
+      <input type="text" class="form-control" name="lastName" placeholder="Last name">
       </div>
     </div>
     <div class="form-group">
       <label class="col-sm-offset-2 col-sm-10" for="dateofBirth">Birthday</label>
       <div class="col-sm-10">
-        <input type="date" name="dateOfBirth"><br>
+        <input type="date" name="dateOfBirth">
       </div>
     </div>
     <div class="form-group">
@@ -61,5 +61,26 @@ session_start();
     </div>
   </form>
 </div>
+<div class="container">
+  <h3>Log In</h3>
+  <form class="form-horizontal" action="./Service/logInService.php" method="post" id="login" name="login">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="username">Username:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="username" placeholder="Username">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="password">Password:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="password" placeholder="Password">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Log In</button>
+      </div>
+    </div>
+  </form>
 </body>
 </html>
