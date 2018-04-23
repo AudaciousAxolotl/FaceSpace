@@ -19,7 +19,7 @@ $user = $repo->getUserByID($_GET["id"]);
 </head>
 <style>
 body {
-  background-color: #f7b36a;
+  background-color: #e3d4f7;
   font-family: 'Raleway', sans-serif;
 }
 </style>
@@ -44,14 +44,14 @@ body {
     <input type="submit" value="Add Friend">
   </form><br>
 </div>
-<div class="form-group">
+<div class="container">
   <h3>New Post</h3>
   <?php
   echo '<form action="../../Services/postService.php" method="post" id="makePostForm" name="makePostForm">';
   echo '<input type="hidden" value="' . $user->userId . '" name="id">';
   ?>
     <textarea class="form-control" rows="4" cols="50" name="msg">Enter text here</textarea><br>
-    <input type="submit" value="Post">
+    <button type="submit" class="btn btn-default">Post</button>
   </form>
 </div>
 

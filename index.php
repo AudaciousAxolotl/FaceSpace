@@ -14,15 +14,17 @@ session_start();
 </head>
 <style>
 body {
-  background-color: #f7b36a;
+  background-color: #e3d4f7;
   font-family: 'Raleway', sans-serif;
 }
 </style>
 <body>
-<form action="./Views/SearchResults/index.php" method="get">
-  <input type="text" placeholder="Search" id="search" name="search">
-  <input type="submit" value="Go">
-</form>
+<div class="container">
+  <form action="./Views/SearchResults/index.php" method="get">
+    <input class="form-control" type="text" placeholder="Search" id="search" name="search">
+    <button type="submit" class="btn btn-default">Go</button>
+  </form>
+</div>
 <div class = "jumbotron text-center">
   <h1>Welcome to FaceSpace!</h1>
 </div>
@@ -54,9 +56,9 @@ body {
       </div>
     </div>
     <div class="form-group">
-      <label class="col-sm-offset-2 col-sm-10" for="dateofBirth">Birthday</label>
+      <label class="control-label col-sm-2" for="dateofBirth">Birthday:</label>
       <div class="col-sm-10">
-        <input type="date" name="dateOfBirth">
+        <input class = "form-control" type="date" name="dateOfBirth">
       </div>
     </div>
     <div class="form-group">
