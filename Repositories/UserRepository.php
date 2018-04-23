@@ -96,6 +96,25 @@ class UserRepository extends Repository
         return $user;
     }
 
+    function getUserByUsername($username)
+    {
+        $sql = "SELECT * FROM `users` WHERE `username` = '" . $username . "'";
+        $res = $this->conn->query($sql);
+        $row = $res->fetch_assoc();
+        $user = new User();
+        $user->userId = $row["userId"];
+        $user->username = $row["username"];
+        $user->password = $row["password"];
+        $user->firstName = $row["firstName"];
+        $user->lastName = $row["lastName"];
+        $user->dateOfBirth = $row["dateOfBirth"];
+        $user->bio = $row["bio"];
+        $user->interests = $row["interests"];
+        $user->job = $row["job"];
+        $user->employer = $row["employer"];
+        return $user;
+    }
+
     function getFriends($id)
     {
         $sql = "SELECT `friendsUserId` FROM `friends` WHERE `userId` = '" . $id . "'";

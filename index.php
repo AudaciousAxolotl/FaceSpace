@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +15,7 @@
   </form>
   <br>
   Sign Up<br>
-  <form action="./Services/userService.php" method="post" id="signup" name="signup">
+  <form action="./Services/createAccountService.php" method="post" id="signup" name="signup">
     <input type="text" name="username" placeholder="Username"><br>
     <input type="password" name="password" placeholder="Password"><br>
     <input type="text" name="firstName" placeholder="First name"><br>
@@ -20,6 +23,13 @@
     Birthday:<br>
     <input type="date" name="dateOfBirth"><br>
     <input type="submit" value="Create Account">
+  </form>
+  <br>
+  Log In
+  <form action="./Services/logInService.php" method="post" id="login" name="login">
+    <input type="text" name="username" placeholder="Username"><br>
+    <input type="password" name="password" placeholder="Password"><br>
+    <input type="submit" value="Log In">
   </form>
 </body>
 </html>
