@@ -68,7 +68,7 @@ body {
 </div>
 <div class="container">
   <h3>Log In</h3>
-  <form class="form-horizontal" action="./Service/logInService.php" method="post" id="login" name="login">
+  <form class="form-horizontal" action="./Services/logInService.php" method="post" id="login" name="login">
     <div class="form-group">
       <label class="control-label col-sm-2" for="username">Username:</label>
       <div class="col-sm-10">
