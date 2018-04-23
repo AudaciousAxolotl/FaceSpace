@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once(realpath($_SERVER["DOCUMENT_ROOT"]).'/FaceSpace/Repositories/UserRepository.php');
 require_once(realpath($_SERVER["DOCUMENT_ROOT"]).'/FaceSpace/Repositories/PostRepository.php');
 
@@ -21,28 +20,26 @@ $user = $repo->getUserByID($_GET["id"]);
   Job: <?php echo $user->job; ?><br>
   Employer: <?php echo $user->employer; ?><br>
   <?php
-  if ($user->userId == $_SESSION["id"])
-  {
-    echo '<form action="../../Views/UpdateProfile/index.php">';
-    echo '<input type="hidden" value="' . $user->userId . '" name="id">';
-    echo '<input type="submit" value="Edit Profile">';
-    echo '</form>';
-    echo 'New Post<br>';
-    echo '<form action="../../Services/postService.php" method="post" id="makePostForm" name="makePostForm">';
-    echo '<input type="hidden" value="' . $user->userId . '" name="id">';
-    echo '<textarea rows="4" cols="50" name="msg">Enter text here</textarea><br>';
-    echo '<input type="submit" value="Post">';
-    echo '</form><br>';
-  }
-  else
-  {
-    echo '<form action="../../Services/friendService.php">';
-    echo '<input type="hidden" value="' . $_SESSION["id"] . '" name="userId">';
-    echo '<input type="hidden" value="' . $user->userId . '" name="friendId">';
-    echo '<input type="submit" value="Add Friend">';
-    echo '</form><br>';
-  }
+  echo '<form action="../../Views/UpdateProfile/index.php">';
+  echo '<input type="hidden" value="' . $user->userId . '" name="id">';
   ?>
+    <input type="submit" value="Edit Profile">
+  </form>
+  <?php
+  echo '<form action="../../Services/friendService.php">';
+  echo '<input type="hidden" value="' . $user->userId . '" name="id">';
+  ?>
+    <input type="submit" value="Add Friend">
+  </form><br>
+
+  New Post<br>
+  <?php
+  echo '<form action="../../Services/postService.php" method="post" id="makePostForm" name="makePostForm">';
+  echo '<input type="hidden" value="' . $user->userId . '" name="id">';
+  ?>
+    <textarea rows="4" cols="50" name="msg">Enter text here</textarea><br>
+    <input type="submit" value="Post">
+  </form><br>
 
   <h3>News Feed</h3>
   <?php
