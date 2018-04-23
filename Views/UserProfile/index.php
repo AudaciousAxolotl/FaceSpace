@@ -24,7 +24,6 @@ body {
 }
 </style>
 <body>
-<div classs="container">
   <h3>Name: <?php echo $user->firstName . " " . $user->lastName; ?></h3>
   <h3>Birthday: <?php echo $user->dateOfBirth; ?></h3>
   <h3>Bio: <?php echo $user->bio; ?></h3>
@@ -43,7 +42,6 @@ body {
   ?>
     <input type="submit" value="Add Friend">
   </form><br>
-</div>
 <div class="container">
   <h3>New Post</h3>
   <?php
