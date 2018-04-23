@@ -10,15 +10,27 @@ $user = $repo->getUserByID($_GET["id"]);
 <html>
 <head>
   <title><?php echo $user->firstName . " " . $user->lastName; ?></title>
+  <meta charset = "utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
-
+<style>
+body {
+  background-color: #f7b36a;
+  font-family: 'Raleway', sans-serif;
+}
+</style>
 <body>
-  Name: <?php echo $user->firstName . " " . $user->lastName; ?><br>
-  Birthday: <?php echo $user->dateOfBirth; ?><br>
-  Bio: <?php echo $user->bio; ?><br>
-  Interests: <?php echo $user->interests; ?><br>
-  Job: <?php echo $user->job; ?><br>
-  Employer: <?php echo $user->employer; ?><br>
+<div classs="container">
+  <h3>Name: <?php echo $user->firstName . " " . $user->lastName; ?></h3>
+  <h3>Birthday: <?php echo $user->dateOfBirth; ?></h3>
+  <h3>Bio: <?php echo $user->bio; ?></h3>
+  <h3>Interests: <?php echo $user->interests; ?></h3>
+  <h3>Job: <?php echo $user->job; ?></h3>
+  <h3>Employer: <?php echo $user->employer; ?></h3>
   <?php
   echo '<form action="../../Views/UpdateProfile/index.php">';
   echo '<input type="hidden" value="' . $user->userId . '" name="id">';
@@ -31,16 +43,19 @@ $user = $repo->getUserByID($_GET["id"]);
   ?>
     <input type="submit" value="Add Friend">
   </form><br>
-
-  New Post<br>
+</div>
+<div class="form-group">
+  <h3>New Post</h3>
   <?php
   echo '<form action="../../Services/postService.php" method="post" id="makePostForm" name="makePostForm">';
   echo '<input type="hidden" value="' . $user->userId . '" name="id">';
   ?>
-    <textarea rows="4" cols="50" name="msg">Enter text here</textarea><br>
+    <textarea class="form-control" rows="4" cols="50" name="msg">Enter text here</textarea><br>
     <input type="submit" value="Post">
-  </form><br>
+  </form>
+</div>
 
+<div class="container">
   <h3>News Feed</h3>
   <?php
   $postRepo = new PostRepository();
@@ -55,6 +70,7 @@ $user = $repo->getUserByID($_GET["id"]);
     echo "<br><br>";
   }
   ?>
+</div>
 </body>
 
 </html>

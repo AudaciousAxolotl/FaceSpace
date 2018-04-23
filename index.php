@@ -12,7 +12,12 @@ session_start();
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
-
+<style>
+body {
+  background-color: #f7b36a;
+  font-family: 'Raleway', sans-serif;
+}
+</style>
 <body>
 <form action="./Views/SearchResults/index.php" method="get">
   <input type="text" placeholder="Search" id="search" name="search">
